@@ -54,12 +54,33 @@ public class AccelerometerListener implements SensorEventListener {
 					maxDuration = lastDuration;
 					txtView.setText("Max duration: "+maxDuration);
 				}
-					txtView.setText("Max duration: "+maxDuration);
+					txtView.setText("Max duration: "+formatTime(maxDuration) 
+							+"\nLast duration: "+formatTime(lastDuration)
+							+"\nDistance traveled: "+getDistance(0.5*9.81*(lastDuration*lastDuration)));
+					
 			}
 			rootView.setBackgroundColor(Color.BLACK);
 		}
 	}
 	
+	private String getDistance(double time) {
+		double distance = (0.5*9.81*(lastDuration*lastDuration));
+		String distanceText = ""; 
+		if(distance >= 1.){
+		distanceText = (int)distance + "m and";
+		}
+		distanceText += (int)((distance-(int)distance)*100) + "cm";
+		return distanceText;
+	}
+
+	private String formatTime(double time){
+		String timeString = "";
+		if(time >= 1.){
+			timeString = ((int)time)+"s and ";
+		}
+		timeString += (int)((time - (int)time)*100) + "ms";
+		return timeString;
+	}
 	private double vectorLen(float[] vector){
 		double squared_sum = 0;
 		for (int i = 0; i < vector.length; i++) {
