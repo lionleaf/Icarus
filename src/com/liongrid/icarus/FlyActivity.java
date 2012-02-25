@@ -1,6 +1,7 @@
 package com.liongrid.icarus;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
@@ -10,11 +11,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class FlyActivity extends Activity {
-    private static TextView textView;
+	private static TextView textView;
 	private SensorManager sensorMng;
 	private ViewGroup rootView;
 	public static FlyActivity current;
-
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,8 @@ public class FlyActivity extends Activity {
         sensorMng.registerListener(new AccelerometerListener(rootView), 
         		sensorMng.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_FASTEST);
         
+        
+                
     }
 
 	public void setResultText(String string) {
