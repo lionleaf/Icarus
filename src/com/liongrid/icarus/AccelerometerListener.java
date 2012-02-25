@@ -15,13 +15,10 @@ public class AccelerometerListener implements SensorEventListener {
 	
 	private final double EPSILON = 1;
 	private ViewGroup rootView;
-	private double min_val = 9001;
 	private TextView txtView;
 	
 	private long lastTimeStamp;
 	private boolean timerRunning;
-	private double lastDuration;
-	private double maxDuration;
 	
 	
 	public AccelerometerListener(ViewGroup rootView) {
@@ -35,10 +32,7 @@ public class AccelerometerListener implements SensorEventListener {
 
 	public void onSensorChanged(SensorEvent event) {
 		double vLen = vectorLen(event.values);
-		if(vLen < min_val){
-			min_val =vLen; 
-		}
-		if(vectorLen(event.values) < EPSILON){
+		if(vLen < EPSILON){
 			rootView.setBackgroundColor(Color.WHITE);
 			if(!timerRunning){
 				lastTimeStamp = System.nanoTime(); 
@@ -47,39 +41,13 @@ public class AccelerometerListener implements SensorEventListener {
 		}else{
 			if(timerRunning){
 				timerRunning = false;
-				long temp = System.nanoTime();
-				temp = temp - lastTimeStamp;
-				lastDuration = temp * 0.000000001;
-				if(lastDuration > maxDuration){
-					maxDuration = lastDuration;
-					txtView.setText("Max duration: "+maxDuration);
-				}
-					txtView.setText("Max duration: "+formatTime(maxDuration) 
-							+"\nLast duration: "+formatTime(lastDuration)
-							+"\nDistance traveled: "+getDistance(0.5*9.81*(lastDuration*lastDuration)));
-					
+				long nanoDuration = System.nanoTime();
+				nanoDuration = nanoDuration - lastTimeStamp;
+				ResultManager.addResult(nanoDuration);
+			
 			}
 			rootView.setBackgroundColor(Color.BLACK);
 		}
-	}
-	
-	private String getDistance(double time) {
-		double distance = (0.5*9.81*(lastDuration*lastDuration));
-		String distanceText = ""; 
-		if(distance >= 1.){
-		distanceText = (int)distance + "m and";
-		}
-		distanceText += (int)((distance-(int)distance)*100) + "cm";
-		return distanceText;
-	}
-
-	private String formatTime(double time){
-		String timeString = "";
-		if(time >= 1.){
-			timeString = ((int)time)+"s and ";
-		}
-		timeString += (int)((time - (int)time)*100) + "ms";
-		return timeString;
 	}
 	private double vectorLen(float[] vector){
 		double squared_sum = 0;
@@ -88,5 +56,7 @@ public class AccelerometerListener implements SensorEventListener {
 		}
 		return Math.sqrt(squared_sum);
 	}
+	
+
 
 }
