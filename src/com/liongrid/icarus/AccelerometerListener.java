@@ -40,13 +40,13 @@ public class AccelerometerListener implements SensorEventListener {
 			}
 		}else{
 			if(timerRunning){
+				rootView.setBackgroundColor(Color.BLACK);
 				timerRunning = false;
 				long nanoDuration = System.nanoTime();
 				nanoDuration = nanoDuration - lastTimeStamp;
 				ResultManager.addResult(nanoDuration);
 			
 			}
-			rootView.setBackgroundColor(Color.BLACK);
 		}
 	}
 	private double vectorLen(float[] vector){
