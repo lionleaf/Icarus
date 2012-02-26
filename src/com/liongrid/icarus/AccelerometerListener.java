@@ -15,7 +15,7 @@ public class AccelerometerListener implements SensorEventListener {
 	
 	private final double EPSILON = 1;
 	private ViewGroup rootView;
-	private TextView txtView;
+	//private TextView txtView; 
 	
 	private long lastTimeStamp;
 	private boolean timerRunning;
@@ -23,7 +23,7 @@ public class AccelerometerListener implements SensorEventListener {
 	
 	public AccelerometerListener(ViewGroup rootView) {
 		this.rootView = rootView;
-		txtView = (TextView) rootView.findViewById(R.id.textView);
+		//txtView = (TextView) rootView.findViewById(R.id.textView); don't think we need this
 	}
 	
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -56,7 +56,4 @@ public class AccelerometerListener implements SensorEventListener {
 		}
 		return Math.sqrt(squared_sum);
 	}
-	
-
-
 }

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class FlyActivity extends Activity {
-	private static TextView textView;
+	private static TextView maxDurationLabel,maxDuration,lastDurationLabel,lastDuration;
 	private SensorManager sensorMng;
 	private ViewGroup rootView;
 	public static FlyActivity current;
@@ -22,7 +22,10 @@ public class FlyActivity extends Activity {
         setContentView(R.layout.main);
         current = this;
         
-        textView = (TextView) findViewById(R.id.textView);
+        maxDurationLabel = (TextView) findViewById(R.id.maxDurationLabel);
+        maxDuration = (TextView) findViewById(R.id.maxDuration);
+        lastDurationLabel = (TextView) findViewById(R.id.lastDurationLabel);
+        lastDuration = (TextView) findViewById(R.id.lastDuration);
         rootView = (ViewGroup) findViewById(R.id.rootLayout);
         
         sensorMng = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -33,7 +36,10 @@ public class FlyActivity extends Activity {
                 
     }
 
-	public void setResultText(String string) {
-		textView.setText(string);
+	public void setResultText(String maxDuration, String lastDuration) {
+		FlyActivity.maxDurationLabel.setText("Max duration \n this session:");
+		FlyActivity.maxDuration.setText(maxDuration);
+		FlyActivity.lastDurationLabel.setText("Last Duration:");
+		FlyActivity.lastDuration.setText(lastDuration);
 	}
 }

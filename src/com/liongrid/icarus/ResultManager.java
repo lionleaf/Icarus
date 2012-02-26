@@ -29,8 +29,7 @@ public class ResultManager {
 		if(lastDuration > maxDuration){
 			maxDuration = lastDuration;
 		}
-		FlyActivity.current.setResultText("Max duration this session: "+formatTime(maxDuration) 
-				+"\nLast duration: "+formatTime(lastDuration));
+		FlyActivity.current.setResultText(formatTime(maxDuration), formatTime(lastDuration));
 		addResultToDB(nanoDuration);
 		if(isConnected(FlyActivity.current) && !UploadToServerTask.isRunning){
 			new UploadToServerTask().execute(null);

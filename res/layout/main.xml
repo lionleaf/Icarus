@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
     <TextView
-        android:layout_width="fill_parent"
+        android:id="@+id/maxDurationLabel"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:text="WOHIIII vi skal fly" android:textSize="25dp"/>
+        android:layout_above="@+id/maxDuration"
+        android:layout_centerHorizontal="true"
+        android:text="WOHIIII vi skal fly"
+        android:textSize="25dp" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/maxDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lastDurationLabel"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lastDurationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text=""
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/lastDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lastDurationLabel"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
