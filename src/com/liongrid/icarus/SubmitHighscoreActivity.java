@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class SubmitHighscoreActivity extends Activity {
 
 	public static final String HIGHSCORE_ID = "highscoreID";
+	public static final String NICK_NAME = "nickname";
 	private EditText nickInput;
 	private EditText commentInput;
 	private FlightResult flightResult;
@@ -33,6 +34,7 @@ public class SubmitHighscoreActivity extends Activity {
 	
 	public void submit(View v){
 		String url;
+		conditional_saveNick();
 		try {
 			url = "http://icarus.liongrid.com/add.php?action=addHighscore&data=";
 			url += URLEncoder.encode(
@@ -55,5 +57,14 @@ public class SubmitHighscoreActivity extends Activity {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public void conditional_saveNick(){
+		
+	}
+	
+	public String loadNick(){
+		return null;
+		
+	}
+	
 }

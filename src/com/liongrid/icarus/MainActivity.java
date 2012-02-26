@@ -23,8 +23,7 @@ public class MainActivity extends Activity{
         if(StaticVars.UID == -1){
         	StaticVars.UID = (long) (Math.random() * 9223372036854775807L);
         	
-        	SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-            SharedPreferences.Editor editor = settings.edit();
+            SharedPreferences.Editor editor = prefs.edit();
             editor.putLong("UID", StaticVars.UID);
 
             // Commit the edits!

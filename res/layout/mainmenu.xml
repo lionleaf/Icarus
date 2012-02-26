@@ -7,18 +7,35 @@
 
     <Button
         android:id="@+id/fly_butt"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/flight_list_butt"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:textStyle="bold"
         android:text="FLY!" android:textSize="50dp" android:onClick="flyClicked"/>
 
     <Button
         android:id="@+id/flight_list_butt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/fly_butt"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:text="My flights" android:onClick="myFlightsClicked"/>
+    
+    <Button 
+        android:id="@+id/show_hs_butt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flight_list_butt"
+        android:layout_centerHorizontal="true"
+        android:text="Show Highscores" android:onClick="showHighscoresClicked"/>
+    
+    <Button 
+        android:id="@+id/help_butt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/show_hs_butt"
+        android:layout_centerHorizontal="true"
+        android:text="Help" android:onClick="helpClicked"/>
 
 </RelativeLayout>

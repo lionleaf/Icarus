@@ -15,19 +15,21 @@ public final class R {
         public static final int icon=0x7f020001;
     }
     public static final class id {
-        public static final int RelativeLayout1=0x7f050005;
-        public static final int button1=0x7f050004;
-        public static final int commentInput=0x7f05000a;
-        public static final int flight_list_butt=0x7f050007;
+        public static final int RelativeLayout1=0x7f050004;
+        public static final int commentInput=0x7f05000c;
+        public static final int flight_list_butt=0x7f050006;
         public static final int flight_list_view=0x7f050001;
-        public static final int fly_butt=0x7f050006;
-        public static final int highscoreText=0x7f050008;
-        public static final int nickInput=0x7f050009;
+        public static final int fly_butt=0x7f050005;
+        public static final int help_butt=0x7f050008;
+        public static final int highscoreText=0x7f050009;
+        public static final int nickInput=0x7f05000b;
         public static final int rootLayout=0x7f050002;
+        public static final int show_hs_butt=0x7f050007;
+        public static final int submit_butt=0x7f05000a;
         public static final int textView=0x7f050003;
         public static final int textView1=0x7f050000;
-        public static final int textView3=0x7f05000c;
-        public static final int textView4=0x7f05000b;
+        public static final int textView3=0x7f05000e;
+        public static final int textView4=0x7f05000d;
     }
     public static final class layout {
         public static final int flightlist=0x7f030000;
