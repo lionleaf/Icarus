@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/flight_list_butt"
         android:layout_centerHorizontal="true"
-        android:text="Show Highscores" android:onClick="showHighscoresClicked"/>
+        android:text="Show Highscores" android:onClick="flyClicked"/>
     
     <Button 
         android:id="@+id/help_butt"
@@ -36,6 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/show_hs_butt"
         android:layout_centerHorizontal="true"
-        android:text="Help" android:onClick="helpClicked"/>
+        android:text="Help" android:onClick="flyClicked"/>
 
 </RelativeLayout>

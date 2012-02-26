@@ -9,15 +9,13 @@ import android.view.View;
 
 public class MainActivity extends Activity{
 	
-    private static final String PREFS_NAME = "prefs";
-	
-	@Override
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mainmenu);
 		
 		// Restore preferences
-        SharedPreferences prefs  = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences prefs  = getSharedPreferences(StaticVars.PREFS_NAME, 0);
         StaticVars.UID = prefs.getLong("UID", -1);
         
         if(StaticVars.UID == -1){
@@ -29,7 +27,6 @@ public class MainActivity extends Activity{
             // Commit the edits!
             editor.commit();
         }
-
 	}
 	
 	public void flyClicked(View v){

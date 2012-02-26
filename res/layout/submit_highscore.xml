@@ -30,6 +30,14 @@
         android:layout_marginTop="303dp"
         android:onClick="submit"
         android:text="Submit highscore" />
+        
+	<CheckBox 
+	    android:id="@+id/nick_cb"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"	    	    
+	    android:text="Remember Nickname"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/submit_butt" android:checked="true"/>
 
     <EditText
         android:id="@+id/nickInput"

@@ -5,8 +5,10 @@ import java.net.URLEncoder;
 import org.json.JSONException;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ public class SubmitHighscoreActivity extends Activity {
 	private EditText nickInput;
 	private EditText commentInput;
 	private FlightResult flightResult;
+	private CheckBox nick_cb;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,9 @@ public class SubmitHighscoreActivity extends Activity {
 		
 		TextView highscoreTxt = (TextView) findViewById(R.id.highscoreText);
 		highscoreTxt.setText(flightResult.getListString());
+		nickInput.setText(loadNick());
+		
+		
 	}
 	
 	public void submit(View v){
@@ -59,12 +65,21 @@ public class SubmitHighscoreActivity extends Activity {
 	}
 	
 	public void conditional_saveNick(){
-		
+		nick_cb = (CheckBox) findViewById(R.id.nick_cb);
+		if(nick_cb.isChecked()){
+			SharedPreferences prefs  = getSharedPreferences(StaticVars.PREFS_NAME, 0);
+			SharedPreferences.Editor editor = prefs.edit();
+			editor.putString("Nickname", nickInput.getText().toString());
+
+            // Commit the edits!
+            editor.commit();
+
+		}
 	}
 	
 	public String loadNick(){
-		return null;
-		
+		SharedPreferences prefs  = getSharedPreferences(StaticVars.PREFS_NAME, 0);
+		return prefs.getString("Nickname", "");		
 	}
 	
 }
