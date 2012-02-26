@@ -99,7 +99,7 @@ public class ResultManager {
 	}
 
 	private static boolean uploadResult(String uploadString) throws Exception {
-		String resultString = Utils.executeHttpGet(ADD_RESULT_PAGE+"?action=addResults&data="+URLEncoder.encode(uploadString));
+		String resultString = Utils.executeHttpPost(ADD_RESULT_PAGE,"addResults",URLEncoder.encode(uploadString));
 		Log.d("Icarus", "Server response: "+resultString);
 		if(resultString.trim().equalsIgnoreCase(StaticVars.ACCEPT_STRING)){
 			return true;
