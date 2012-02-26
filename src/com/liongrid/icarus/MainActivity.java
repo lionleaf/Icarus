@@ -39,4 +39,13 @@ public class MainActivity extends Activity{
 		Intent i = new Intent(v.getContext(), FlightListingActivity.class);
 		startActivity(i);
 	}
+	
+	public void show_hsClicked(View v){
+		Intent i = new Intent(v.getContext(), ViewHighscoresActivity.class);
+		startActivity(i);
+	}
+	public void helpClicked(View v){
+		Intent i = new Intent(v.getContext(), HelpActivity.class);
+		startActivity(i);
+	}
 }
