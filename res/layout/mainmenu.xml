@@ -20,7 +20,7 @@
         android:layout_centerVertical="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="My flights" android:onClick="myFlightsClicked"/>
+        android:text="My Flights" android:onClick="myFlightsClicked"/>
     
     <Button 
         android:id="@+id/show_hs_butt"
