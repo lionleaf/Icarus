@@ -35,7 +35,7 @@ public class ResultManager {
 			maxDuration = lastDuration;
 		}
 		addResultToDB(nanoDuration);
-		FlyActivity.current.showDebugText("max delay: "+ formatTime(longestDelay))
+		FlyActivity.current.showDebugText("max delay: "+ formatTime(longestDelay));
 		if(isConnected(FlyActivity.current) && !UploadToServerTask.isRunning){
 			new UploadToServerTask().execute(null);
 		}	
