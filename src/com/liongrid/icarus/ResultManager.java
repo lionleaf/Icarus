@@ -20,17 +20,22 @@ import android.util.Log;
 public class ResultManager {
 
 	private static final String ADD_RESULT_PAGE = "http://icarus.liongrid.com/add.php";
+	private static final int MAX_UNCERTAINTY = 300*100000000; //300 ms
 	private static double lastDuration;
 	private static double maxDuration;
 	
-	public static void addResult(long nanoDuration){
-		
+	public static void addResult(long nanoDuration, long longestDelay){
+		FlyActivity.current.setResultText(formatTime(maxDuration), formatTime(lastDuration));
+		if(longestDelay > MAX_UNCERTAINTY){
+			FlyActivity.current.showUncertantyError();
+			return;
+		}
 		lastDuration = nanoDuration * 0.000000001;
 		if(lastDuration > maxDuration){
 			maxDuration = lastDuration;
 		}
-		FlyActivity.current.setResultText(formatTime(maxDuration), formatTime(lastDuration));
 		addResultToDB(nanoDuration);
+		FlyActivity.current.showDebugText("max delay: "+ formatTime(longestDelay))
 		if(isConnected(FlyActivity.current) && !UploadToServerTask.isRunning){
 			new UploadToServerTask().execute(null);
 		}	

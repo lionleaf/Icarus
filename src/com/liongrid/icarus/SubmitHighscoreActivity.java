@@ -5,6 +5,7 @@ import java.net.URLEncoder;
 import org.json.JSONException;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +40,7 @@ public class SubmitHighscoreActivity extends Activity {
 	}
 	
 	public void submit(View v){
+		ProgressDialog pd = ProgressDialog.show(this, "Working..", "Uploading flight result", true, false);		
 		String url;
 		conditional_saveNick();
 		try {
@@ -48,6 +50,7 @@ public class SubmitHighscoreActivity extends Activity {
 			String result = Utils.executeHttpGet(url);
 			
 			if(result.trim().equalsIgnoreCase(StaticVars.ACCEPT_STRING)){
+				pd.dismiss();
 				Toast toast = Toast.makeText(v.getContext(), "Highscore submitted", Toast.LENGTH_SHORT);
 				toast.show();
 				this.finish();
@@ -62,6 +65,8 @@ public class SubmitHighscoreActivity extends Activity {
 			toast.show();
 			e.printStackTrace();
 		}
+		
+		pd.dismiss();
 	}
 	
 	public void conditional_saveNick(){

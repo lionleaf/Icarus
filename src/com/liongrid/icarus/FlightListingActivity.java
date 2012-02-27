@@ -37,7 +37,8 @@ public class FlightListingActivity extends Activity {
 		
 		ArrayList<View> list = new ArrayList<View>();
 		result.moveToFirst();
-		while(!result.isAfterLast()){
+		int i = 0;
+		while(!result.isAfterLast() && i++ < 20){
 			long nanodur = result.getLong(0);
 			long timestamp = result.getLong(1);
 			long id = result.getLong(2);

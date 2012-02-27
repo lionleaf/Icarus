@@ -3,5 +3,7 @@
 
     <string name="hello">Hello World, FlyActivity!</string>
     <string name="app_name">Icarus</string>
+    <string name="help">To use the app, press &quot;Fly!&quot; on the main menu, and throw the phone up in the air. Be careful to throw it straight up, and not let the device rotate in the air, as this will void the measurement. </string>
+    <string name="help2">Go to the &quot;My Flights&quot; menu and choose the flights you want to upload and enter a nickname and a comment about the flight. To view highscore comments, visit our webpage http://icarus.liongrid.com</string>
 
 </resources>

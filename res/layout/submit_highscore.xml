@@ -3,7 +3,8 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/bgcolor" >
 
     <TextView
         android:id="@+id/textView1"
@@ -22,23 +23,6 @@
         android:layout_centerHorizontal="true"
         android:text="TextView" />
 
-    <Button
-        android:id="@+id/submit_butt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="303dp"
-        android:onClick="submit"
-        android:text="Submit highscore" />
-        
-	<CheckBox 
-	    android:id="@+id/nick_cb"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"	    	    
-	    android:text="Remember Nickname"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/submit_butt" android:checked="true"/>
-
     <EditText
         android:id="@+id/nickInput"
         android:layout_width="wrap_content"
@@ -54,7 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/nickInput"
         android:layout_below="@+id/nickInput"
-        android:lines="6"
+        android:gravity="top"
+        android:lines="4"
         android:minEms="8" >
 
         <requestFocus />
@@ -75,5 +60,23 @@
         android:layout_alignRight="@+id/textView4"
         android:layout_alignTop="@+id/nickInput"
         android:text="Nickname: " />
+
+    <CheckBox
+        android:id="@+id/nick_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/commentInput"
+        android:layout_toRightOf="@+id/textView4"
+        android:checked="true"
+        android:text="Remember Nickname" />
+
+    <Button
+        android:id="@+id/submit_butt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/nick_cb"
+        android:onClick="submit"
+        android:text="Submit highscore" />
 
 </RelativeLayout>

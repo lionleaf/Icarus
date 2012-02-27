@@ -3,39 +3,45 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/bgcolor"
     android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/flight_list_butt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:onClick="myFlightsClicked"
+        android:text="My Flights" />
 
     <Button
         android:id="@+id/fly_butt"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/flight_list_butt"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:text="FLY!" android:textSize="50dp" android:onClick="flyClicked"/>
+        android:layout_alignParentLeft="true"
+        android:onClick="flyClicked"
+        android:text="FLY!"
+        android:textSize="50dp"
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/flight_list_butt"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="My Flights" android:onClick="myFlightsClicked"/>
-    
-    <Button 
         android:id="@+id/show_hs_butt"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/flight_list_butt"
-        android:layout_centerHorizontal="true"
-        android:text="Show Highscores" android:onClick="show_hsClicked"/>
-    
-    <Button 
+        android:onClick="show_hsClicked"
+        android:text="Show Highscores" />
+
+    <Button
         android:id="@+id/help_butt"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/show_hs_butt"
-        android:layout_centerHorizontal="true"
-        android:text="Help" android:onClick="helpClicked"/>
+        android:onClick="helpClicked"
+        android:text="Help" />
 
 </RelativeLayout>

@@ -3,7 +3,8 @@
     android:id="@+id/rootLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/bgcolor">
 
     <TextView
         android:id="@+id/maxDurationLabel"
@@ -11,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/maxDuration"
         android:layout_centerHorizontal="true"
-        android:text="WOHIIII vi skal fly"
+        android:text="WOHIIII let's fly"
         android:textSize="25dp" />
 
     <TextView

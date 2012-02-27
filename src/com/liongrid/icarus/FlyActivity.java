@@ -42,4 +42,14 @@ public class FlyActivity extends Activity {
 		FlyActivity.lastDurationLabel.setText("Last Duration:");
 		FlyActivity.lastDuration.setText(lastDuration);
 	}
+
+	public void showUncertantyError() {
+		FlyActivity.lastDurationLabel.setText("Last Duration (disqualified due to too bad readings):");
+	}
+
+	public void showDebugText(String string) {
+		lastDurationLabel.setText(lastDuration.getText()+string);
+		// TODO Auto-generated method stub
+		
+	}
 }

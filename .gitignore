@@ -1,4 +1,4 @@
 dir
 bin/
 bin/**/
-
+gen/**/R.java

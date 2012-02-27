@@ -12,20 +12,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class AccelerometerListener implements SensorEventListener {
-	
+
 	private final double EPSILON = 1;
 	private ViewGroup rootView;
 	//private TextView txtView; 
-	
+
 	private long lastTimeStamp;
 	private boolean timerRunning;
-	
-	
+	private long lastAntiCheatStamp;
+	private long longestDelay;
+
 	public AccelerometerListener(ViewGroup rootView) {
 		this.rootView = rootView;
 		//txtView = (TextView) rootView.findViewById(R.id.textView); don't think we need this
 	}
-	
+
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
 	}
@@ -33,10 +34,17 @@ public class AccelerometerListener implements SensorEventListener {
 	public void onSensorChanged(SensorEvent event) {
 		double vLen = vectorLen(event.values);
 		if(vLen < EPSILON){
-			rootView.setBackgroundColor(Color.WHITE);
+			long stamp = System.nanoTime();
+
+			lastAntiCheatStamp = stamp;
 			if(!timerRunning){
-				lastTimeStamp = System.nanoTime(); 
+				lastTimeStamp = stamp;
 				timerRunning = true;
+			}else{
+				long delay = stamp - lastAntiCheatStamp;
+				if(delay > longestDelay){
+					longestDelay = delay;
+				}
 			}
 		}else{
 			if(timerRunning){
@@ -44,8 +52,8 @@ public class AccelerometerListener implements SensorEventListener {
 				timerRunning = false;
 				long nanoDuration = System.nanoTime();
 				nanoDuration = nanoDuration - lastTimeStamp;
-				ResultManager.addResult(nanoDuration);
-			
+				ResultManager.addResult(nanoDuration, longestDelay);
+
 			}
 		}
 	}
