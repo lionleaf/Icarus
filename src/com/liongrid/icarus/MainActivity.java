@@ -48,10 +48,7 @@ public class MainActivity extends Activity{
     		result.moveToFirst();
     		
     		totthrows.setText(Integer.toString((int)result.getInt(0)));
-    		totairtime.setText(ResultManager.formatTime((double)result.getLong(1)));
-    		/*
-    		long a = result.getInt(1);
-    		*/
+    		totairtime.setText(ResultManager.formatTime(result.getLong(1)));
     }
 	public void flyClicked(View v){
 		Intent i = new Intent(v.getContext(), FlyActivity.class);
