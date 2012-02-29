@@ -35,8 +35,8 @@ public class MainActivity extends Activity{
             // Commit the edits!
             editor.commit();
             
-            //Inserting info into statisticboxes
         }
+        //Inserting info into statisticboxes
         insertStats();
 	}
 	
@@ -46,7 +46,7 @@ public class MainActivity extends Activity{
     		SQLiteDatabase db = sqlOpen.getReadableDatabase();
     		Cursor result = db.rawQuery(query, null);
     		result.moveToFirst();
-    		
+    		db.close();
     		totthrows.setText(Integer.toString((int)result.getInt(0)));
     		totairtime.setText(ResultManager.formatTime(result.getLong(1)));
     }

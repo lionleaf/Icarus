@@ -48,8 +48,7 @@ public class FlyActivity extends Activity {
 	}
 
 	public void showDebugText(String string) {
-		lastDurationLabel.setText(lastDuration.getText()+string);
-		// TODO Auto-generated method stub
+		lastDurationLabel.setText(lastDuration.getText()+" "+string);
 		
 	}
 }
