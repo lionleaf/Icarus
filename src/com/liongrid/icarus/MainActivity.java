@@ -4,15 +4,23 @@ package com.liongrid.icarus;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+
 
 public class MainActivity extends Activity{
 	
+	private static TextView totairtime,totthrows;
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mainmenu);
+		
+		totthrows = (TextView) findViewById(R.id.totthrows);
+		totairtime = (TextView) findViewById(R.id.totairtime);
 		
 		// Restore preferences
         SharedPreferences prefs  = getSharedPreferences(StaticVars.PREFS_NAME, 0);
@@ -26,9 +34,22 @@ public class MainActivity extends Activity{
 
             // Commit the edits!
             editor.commit();
+            
         }
+        //Inserting info into statisticboxes
+        insertStats();
 	}
 	
+    private void insertStats(){
+            String query = "SELECT COUNT(*), SUM(nanoduration) FROM flight;";
+    		SQLOpener sqlOpen = new SQLOpener(this);
+    		SQLiteDatabase db = sqlOpen.getReadableDatabase();
+    		Cursor result = db.rawQuery(query, null);
+    		result.moveToFirst();
+    		db.close();
+    		totthrows.setText(Integer.toString((int)result.getInt(0)));
+    		totairtime.setText(ResultManager.formatTime(result.getLong(1)));
+    }
 	public void flyClicked(View v){
 		Intent i = new Intent(v.getContext(), FlyActivity.class);
 		startActivity(i);
