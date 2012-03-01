@@ -18,7 +18,7 @@ public class AccelerometerListener implements SensorEventListener {
 
 	private long startTimeStamp;
 	private boolean timerRunning;
-	private long lastAntiCheatStamp;
+	private long lastTimeStamp;
 	private long longestDelay;
 	private long delay;
 	private long stamp;
