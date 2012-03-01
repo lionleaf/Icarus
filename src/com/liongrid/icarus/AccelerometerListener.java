@@ -19,9 +19,7 @@ public class AccelerometerListener implements SensorEventListener {
 	private long startTimeStamp;
 	private boolean timerRunning;
 	private long lastTimeStamp;
-	private long longestDelay;
 	private long delay;
-	private long stamp;
 
 	public AccelerometerListener(ViewGroup rootView) {
 		this.rootView = rootView;
@@ -34,21 +32,22 @@ public class AccelerometerListener implements SensorEventListener {
 	public void onSensorChanged(SensorEvent event) {
 		double vLen = vectorLen(event.values);
 		if(vLen < EPSILON){
-			stamp = System.nanoTime();
+			long stamp = System.nanoTime();
 
 			if(!timerRunning){
 				startTimeStamp = stamp;
 				timerRunning = true;
 			}else{
-				delay = stamp - lastTimeStamp;
+				lastTimeStamp = stamp;
 			}
 		}else{
 			if(timerRunning){
 				timerRunning = false;
-				long nanoDuration = System.nanoTime();
+				long stamp = System.nanoTime();
 
-				nanoDuration = nanoDuration - lastTimeStamp;
-				ResultManager.addResult(nanoDuration, delay);
+				delay = stamp - lastTimeStamp;
+				stamp = stamp - startTimeStamp;
+				ResultManager.addResult(stamp, delay);
 			}
 		}
 	}
