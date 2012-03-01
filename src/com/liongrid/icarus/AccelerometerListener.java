@@ -17,7 +17,7 @@ public class AccelerometerListener implements SensorEventListener {
 	private ViewGroup rootView;
 	//private TextView txtView; 
 
-	private long lastTimeStamp;
+	private long startTimeStamp;
 	private boolean timerRunning;
 	private long lastAntiCheatStamp;
 	private long longestDelay;
@@ -38,7 +38,7 @@ public class AccelerometerListener implements SensorEventListener {
 
 			lastAntiCheatStamp = stamp;
 			if(!timerRunning){
-				lastTimeStamp = stamp;
+				startTimeStamp = stamp;
 				timerRunning = true;
 			}else{
 				long delay = stamp - lastAntiCheatStamp;
@@ -48,10 +48,9 @@ public class AccelerometerListener implements SensorEventListener {
 			}
 		}else{
 			if(timerRunning){
-				rootView.setBackgroundColor(Color.BLACK);
 				timerRunning = false;
 				long nanoDuration = System.nanoTime();
-				nanoDuration = nanoDuration - lastTimeStamp;
+				nanoDuration = nanoDuration - startTimeStamp;
 				ResultManager.addResult(nanoDuration, longestDelay);
 
 			}
