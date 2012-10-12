@@ -3,6 +3,6 @@ Icarus is an android game utilizing the accelerometer of your Android device to 
 Link to the app in Google Play:
 https://play.google.com/store/apps/details?id=com.liongrid.icarus
 
-This app was made during a weekend of hacking at Ninjadev's Ninjacon 12.2 by Andreas Løve Selvik and Joakim Skarding
+This app was made during a weekend of hacking at Ninjadev's Ninjacon 12.2 by Andreas Løve Selvik (lionleaf) and Joakim Skarding (Zmeos)
 
 Contact: andreas.l.selvik@gmail.com
