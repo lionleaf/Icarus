@@ -44,7 +44,7 @@ public class FlyActivity extends Activity {
 	}
 
 	public void showUncertantyError() {
-		FlyActivity.lastDurationLabel.setText("Last Duration (disqualified due to too bad readings):");
+		FlyActivity.lastDurationLabel.setText("Last Duration (disqualified due to too high uncertainty");
 	}
 
 	public void showDebugText(String string) {

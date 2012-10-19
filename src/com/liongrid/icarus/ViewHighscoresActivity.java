@@ -32,7 +32,7 @@ public class ViewHighscoresActivity extends Activity {
 	}
 
 	private void populateListView() {
-		new pageLoader().execute(null);
+		new pageLoader().execute();
 	}
 	
 	private class pageLoader extends AsyncTask<Object,Object,String>{

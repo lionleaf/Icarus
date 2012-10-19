@@ -37,10 +37,10 @@ public class AccelerometerListener implements SensorEventListener {
 			if(!timerRunning){
 				startTimeStamp = stamp;
 				timerRunning = true;
-				lastTimeStamp = stamp;
-			}else{
-				lastTimeStamp = stamp;
 			}
+			
+			lastTimeStamp = stamp;
+			
 		}else{
 			if(timerRunning){
 				timerRunning = false;

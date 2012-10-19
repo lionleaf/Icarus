@@ -25,20 +25,20 @@ public class ResultManager {
 	private static double maxDuration;
 	
 	public static void addResult(long nanoDuration, long longestDelay){
+		lastDuration = nanoDuration * 0.000000001;
 		FlyActivity.current.setResultText(formatTime(maxDuration), formatTime(lastDuration));
 		//FlyActivity.current.showDebugText("max delay: "+ formatTime(longestDelay));
 		if(longestDelay > MAX_UNCERTAINTY){
 			FlyActivity.current.showUncertantyError();
 			return;
 		}
-		lastDuration = nanoDuration * 0.000000001;
 		if(lastDuration > maxDuration){
 			maxDuration = lastDuration;
 		}
 		FlyActivity.current.showDebugText(" uncertainty: "+ formatTime(longestDelay));
 		addResultToDB(nanoDuration);
 		if(isConnected(FlyActivity.current) && !UploadToServerTask.isRunning){
-			new UploadToServerTask().execute(null);
+			new UploadToServerTask().execute();
 		}	
 
 	}

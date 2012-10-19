@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
     android:id="@+id/rootLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="@drawable/bgcolor">
+    android:background="@drawable/bgcolor"
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/maxDurationLabel"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/maxDuration"
         android:layout_centerHorizontal="true"
-        android:text="WOHIIII let's fly"
+        android:text="WOHIIII let&apos;s fly"
         android:textSize="25dp" />
 
     <TextView
@@ -43,5 +44,17 @@
         android:text=""
         android:textSize="50dp"
         android:textStyle="bold" />
+
+    <com.google.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="a150810ce5f0929"
+        ads:loadAdOnCreate="true"
+        ads:testDevices="TEST_EMULATOR, 4D6FB03FF57BC1BB1360A3EBD3E475A5" >
+    </com.google.ads.AdView>
 
 </RelativeLayout>
