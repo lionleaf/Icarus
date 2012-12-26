@@ -1,6 +1,6 @@
 package com.liongrid.icarus;
 
-import android.app.Activity;
+import org.holoeverywhere.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;

@@ -2,7 +2,7 @@ package com.liongrid.icarus;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
+import org.holoeverywhere.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;

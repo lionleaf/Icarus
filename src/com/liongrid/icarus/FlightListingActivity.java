@@ -2,7 +2,7 @@ package com.liongrid.icarus;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
+import org.holoeverywhere.app.Activity;
 import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
-import android.widget.ListView;
+import org.holoeverywhere.widget.ListView;
 import android.widget.SimpleAdapter;
 
 public class FlightListingActivity extends Activity {
@@ -52,11 +52,11 @@ public class FlightListingActivity extends Activity {
 		listView.setAdapter(new ArrayAdapter<View>(this, R.layout.list_view_text, list));
 		
 		listView.setOnItemClickListener(new OnItemClickListener() {
-
+			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int pos,
 					long id) {
 				((FlightResultView) parent.getAdapter().getItem(pos)).addHighScore();
-				
+
 			}
 		});
 	}

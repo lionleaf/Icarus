@@ -1,6 +1,6 @@
 package com.liongrid.icarus;
 
-import android.app.Activity;
+import org.holoeverywhere.app.Activity;
 import android.os.Bundle;
 
 public class HelpActivity extends Activity{
