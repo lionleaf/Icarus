@@ -1,4 +1,8 @@
 dir
+out/
+gen/
 bin/
 bin/**/
 gen/**/R.java
+.idea/
+
