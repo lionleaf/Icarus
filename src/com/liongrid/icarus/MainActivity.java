@@ -1,6 +1,6 @@
 package com.liongrid.icarus;
 
-import org.holoeverywhere.app.Activity;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-public class MainActivity extends Activity{
+public class MainActivity extends Activity {
 	
 	public static final String ADMOB_ID = "a150810ce5f0929";
 	

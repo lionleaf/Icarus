@@ -10,8 +10,7 @@
 
     <application
         android:icon="@drawable/icon"
-        android:label="@string/app_name" android:debuggable="true"
-        android:theme="@style/Holo.Theme">
+        android:label="@string/app_name" android:debuggable="true">
         
          <activity
             android:name=".MainActivity"

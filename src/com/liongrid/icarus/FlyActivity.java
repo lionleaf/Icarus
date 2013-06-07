@@ -1,6 +1,6 @@
 package com.liongrid.icarus;
 
-import org.holoeverywhere.app.Activity;
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.hardware.Sensor;

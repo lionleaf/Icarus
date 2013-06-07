@@ -4,7 +4,7 @@ import java.net.URLEncoder;
 
 import org.json.JSONException;
 
-import org.holoeverywhere.app.Activity;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;

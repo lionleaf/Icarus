@@ -13,7 +13,7 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:onClick="myFlightsClicked"
-        android:text="My Flights" />
+        android:text="@string/myflights" />
 
     <Button
         android:id="@+id/fly_butt"

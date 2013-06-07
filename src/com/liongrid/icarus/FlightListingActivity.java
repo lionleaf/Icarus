@@ -2,7 +2,7 @@ package com.liongrid.icarus;
 
 import java.util.ArrayList;
 
-import org.holoeverywhere.app.Activity;
+import android.app.Activity;
 import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
-import org.holoeverywhere.widget.ListView;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 public class FlightListingActivity extends Activity {
